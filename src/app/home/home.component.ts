@@ -6,7 +6,6 @@ import 'rxjs/add/operator/map';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [ProductService]
 })
 export class HomeComponent implements OnInit {
 

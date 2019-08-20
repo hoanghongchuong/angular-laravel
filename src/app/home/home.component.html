@@ -22,8 +22,8 @@
               <td>{{product.price | number}}</td>
               <td>{{product.description}}</td>
               <td class="">
-                <a href="" class="btn btn-primary"><i class="fa fa-pencil fa-fw"></i>Edit</a>
-                <a href="" class="btn btn-danger"><i class="fa fa-trash-o fa-fw"></i>Delete</a>
+                <a routerLink="edit/{{product.id}}" class="btn btn-primary"><i class="fa fa-pencil fa-fw"></i>Edit</a>
+                <a routerLink="" class="btn btn-danger"><i class="fa fa-trash-o fa-fw"></i>Delete</a>
               </td>
             </tr>
           </tbody>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Product} from '../shared/product.model';
+import {ProductService} from '../shared/product.service';
+import {Router, Params} from '@angular/router';
 
 @Component({
   selector: 'app-add',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit {
-
-  constructor() { }
+  product = new Product();
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  goBack()   {
+    this.router.navigate(['/home']);
+  }
 }
