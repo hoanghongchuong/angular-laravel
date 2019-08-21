@@ -16,16 +16,13 @@ export class AddComponent implements OnInit {
 
   ngOnInit() {
   }
-  showMessage() {
-    return this.toastService.Success('Thêm thành công','success');
-  }
   goBack()   {
     this.router.navigate(['/home']);
   }
   onSubmit(form: NgForm) {
     this.productService.insertData(form.value)
       .subscribe(data => {
-        this.showMessage();
+        this.toastService.Success('Thêm thành công','success');
         this.goBack();
       });
   }

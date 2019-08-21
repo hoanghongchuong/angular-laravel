@@ -8,7 +8,7 @@ export class ToasterServiceService {
     this.setting();
   }
   Success(title: string, message?: string) {
-    toastr.success(title, message);
+    return toastr.success(title, message);
   }
 
   setting() {

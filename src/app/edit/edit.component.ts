@@ -26,22 +26,18 @@ export class EditComponent implements OnInit {
   goBack()   {
     this.router.navigate(['/home']);
   }
-  showMessage() {
-    return this.toastService.Success('Sửa thành công','success');
-  }
   getOneProduct() {
     let id = this.route.snapshot.params['id'];
     this.productService.show(id).subscribe(product => {
         this.product = product;
         this.product = this.product.data;
-        console.log(this.product);
     });
   }
 
   onSubmit(form: NgForm) {
     this.productService.update(form.value, form.value.id)
       .subscribe(res => {
-        this.showMessage();
+        this.toastService.Success('Sửa thành công','success');
       });
   }
 }

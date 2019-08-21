@@ -16,9 +16,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getAllProduct();
   }
-  showMessage() {
-    return this.toastService.Success('Xóa thành công','success');
-  }
   getAllProduct() {
     this.productService.getData().subscribe(
       data => {
@@ -33,7 +30,7 @@ export class HomeComponent implements OnInit {
       this.productService.deleteDataById(id)
         .subscribe( res => {
           this.getAllProduct();
-          this.showMessage();
+          this.toastService.Success('Xóa thành công','success');
         });
     }else {
 
