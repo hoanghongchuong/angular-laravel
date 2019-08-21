@@ -26,6 +26,9 @@ export class EditComponent implements OnInit {
   goBack()   {
     this.router.navigate(['/home']);
   }
+  showMessage() {
+    return this.toastService.Success('Sửa thành công','success');
+  }
   getOneProduct() {
     let id = this.route.snapshot.params['id'];
     this.productService.show(id).subscribe(product => {
@@ -38,7 +41,7 @@ export class EditComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.productService.update(form.value, form.value.id)
       .subscribe(res => {
-        console.log(res);
+        this.showMessage();
       });
   }
 }
