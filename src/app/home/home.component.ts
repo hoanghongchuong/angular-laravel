@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductService} from '../shared/product.service';
-import { HttpClient } from '@angular/common/http';
+import {ToasterServiceService} from '../shared/toaster-service.service';
+// import { HttpClient } from '@angular/common/http';
+// import { Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 @Component({
   selector: 'app-home',
@@ -9,15 +11,33 @@ import 'rxjs/add/operator/map';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private productService: ProductService, private http: HttpClient) { }
+  constructor(private productService: ProductService, private toastService: ToasterServiceService) { }
   products: any;
-  private url = 'http://localhost:8000/api/products/';
   ngOnInit() {
-    this.http.get(this.url).subscribe(data => {
-      this.products = data;
-      this.products = this.products.data;
-      // console.log(this.products.data);
-    });
+    this.getAllProduct();
   }
+  showMessage() {
+    return this.toastService.Success('Xóa thành công','success');
+  }
+  getAllProduct() {
+    this.productService.getData().subscribe(
+      data => {
+        this.products = data;
+        this.products = this.products.data;
+      }
+    );
+  }
+  deleteProduct(id) {
+    var response = confirm('Bạn có chắc muốn xóa');
+    if (response === true) {
+      this.productService.deleteDataById(id)
+        .subscribe( res => {
+          this.getAllProduct();
+          this.showMessage();
+        });
+    }else {
 
+    }
+
+  }
 }
