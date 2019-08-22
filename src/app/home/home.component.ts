@@ -4,6 +4,7 @@ import {ToasterServiceService} from '../shared/toaster-service.service';
 // import { HttpClient } from '@angular/common/http';
 // import { Response } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {Product} from '../shared/product.model';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,9 +19,10 @@ export class HomeComponent implements OnInit {
   }
   getAllProduct() {
     this.productService.getData().subscribe(
-      data => {
+      (data: Product) => {
         this.products = data;
-        this.products = this.products.data;
+        console.log(data);
+        // this.products = this.products.data;
       }
     );
   }

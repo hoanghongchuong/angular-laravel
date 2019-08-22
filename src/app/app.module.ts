@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { HttpModule } from '@angular/http';
@@ -25,9 +26,9 @@ import {ToasterServiceService} from './shared/toaster-service.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
   ],
-  providers: [ProductService, ToasterServiceService],
+  providers: [ProductService, ToasterServiceService, FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
