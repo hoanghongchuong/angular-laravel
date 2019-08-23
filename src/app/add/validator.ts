@@ -7,9 +7,11 @@ export class ValidatorForm {
   messageValidationError: any;
   formErrors = {
     name: '',
-    presentationFrameId: '',
-    comment: '',
-    place: ''
+    slug: '',
+    price: null,
+    description: '',
+    detail: '',
+    image: ''
   };
 
   constructor(private formBuilder: FormBuilder) {
@@ -20,6 +22,11 @@ export class ValidatorForm {
     let form: FormGroup;
     form = this.formBuilder.group({
       'name': [model.name, Validators.required],
+      'slug': [model.slug],
+      'price': [model.price],
+      'description': [model.price],
+      'detail': [model.detail],
+      'image': [model.image]
       // 'comment': [model.comment, [Validators.maxLength(300)]],
       // 'place': [model.place, [Validators.maxLength(20)]],
       // 'lunchBoxId': [model.lunchBoxId],
